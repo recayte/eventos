@@ -1,6 +1,6 @@
-## URL https://recayte.github.io/eventos/
+## URL
 
-#This Project is host on https://recayte.github.io/eventos/
+This Project is host on https://recayte.github.io/eventos/
 
 ## Available Scripts
 
