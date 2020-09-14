@@ -1,12 +1,12 @@
 import React from "react";
 import PrimarySearchAppBar from "./components/navbar/PrimarySearchAppBar";
-import MapGl from "./components/map/MapGl";
+import Map from "./components/map/ReactMapGL";
 
 function App() {
   return (
     <div className="App">
       <PrimarySearchAppBar></PrimarySearchAppBar>
-      <MapGl></MapGl>
+      <Map></Map>
     </div>
   );
 }

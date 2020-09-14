@@ -4,18 +4,19 @@ import ReactMapGL from "react-map-gl";
 
 function Map() {
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
-    latitude: 37.7577,
-    longitude: -122.4376,
-    zoom: 8,
+    width: "100VW",
+    height: 1000,
+    latitude: -34.6037345,
+    longitude: -58.3837591,
+    zoom: 12,
   });
 
   return (
     <ReactMapGL
       {...viewport}
+      mapStyle="mapbox://styles/daannmf/ckf32gcuv0a1f1aoxnyn2ci17"
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
-      mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
     />
   );
 }
