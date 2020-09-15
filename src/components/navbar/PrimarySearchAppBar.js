@@ -15,6 +15,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import StorefrontIcon from "@material-ui/icons/Storefront";
 //Drawer
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -24,6 +25,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import clsx from "clsx";
+//Drawer List
+import Avatar from "@material-ui/core/Avatar";
+import BreadCrumbs from "@material-ui/core/Breadcrumbs";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -194,21 +199,38 @@ export default function PrimarySearchAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem>
+          <Avatar
+            alt="Daniel Fimiani"
+            src="../../../public/static-profile.jpg"
+          />
+        </ListItem>
+        <ListItem>
+          <BreadCrumbs>
+            <Link color="inherit" href="/">
+              Perfil
+            </Link>
+            <Link color="inherit" href="/getting-started/installation/">
+              Log-Out
+            </Link>
+          </BreadCrumbs>
+        </ListItem>
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+        {["Mis Eventos", "Inbox", "FAQS"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {(() => {
+                switch (index) {
+                  case 0:
+                    return <StorefrontIcon />;
+                  case 1:
+                    return <MailIcon />;
+                  default:
+                    return <InboxIcon />;
+                }
+              }).call(this)}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -285,7 +307,10 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <Avatar
+                alt="Daniel Fimiani"
+                src="../../../public/static-profile.jpg"
+              />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
